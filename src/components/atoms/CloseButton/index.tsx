@@ -20,6 +20,12 @@ const Container = styled.div`
     opacity: .5;
     padding: 1rem;
     margin: -1rem -1rem -1rem auto;
+    cursor: pointer;
+    :hover {
+        color: #000;
+        text-decoration: none;
+        opacity: .75;
+    }
 `
 const Close = styled.span`
 `

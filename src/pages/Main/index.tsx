@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "components/organisms/Header";
-import Calendar from "components/organisms/Calender"
-import ModalFade from "components/atoms/ModalFade"
+// import Calendar from "components/organisms/Calender"
+import DailyCalender from "components/organisms/DailyCalender"
+// import ModalFade from "components/atoms/ModalFade"
+// import Modal from "components/organisms/Modal"
 const Main: React.FC = () => {
 
   const [month, setMonth] = useState(0)
 
   return (
     <>
-      <ModalFade />
+      {/* <Modal />
+      <ModalFade /> */}
       <Container>
         <Header setMonth={setMonth} month={month} />
-        <Calendar month={month} />
+        {/* <Calendar month={month} /> */}
+        <DailyCalender/>
       </Container>
     </>
   );

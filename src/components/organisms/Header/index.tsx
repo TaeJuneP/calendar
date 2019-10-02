@@ -17,7 +17,7 @@ const Header: React.FC<Props> = (props: Props) => {
       <Bundle>
         <TodayButton />
         <LeftAndRightPointer setMonth={props.setMonth} month={props.month} />
-        <Text month={props.month}/>
+        <Text month={props.month} />
       </Bundle>
       <Link />
     </Container>
@@ -29,7 +29,7 @@ const Bundle = styled.div`
   display:flex;
 `
 const Container = styled.div`
-  background: #F7F7FB;
+  background-color: #F7F7FB;
   border-bottom: 1px solid #D7E2EB;
   display:flex;
   color: #44576c;
