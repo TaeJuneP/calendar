@@ -16,7 +16,6 @@ const DayNamesGrid: React.FC = () => {
 }
 
 const Container = styled.div`
-    border-bottom: 1px solid #D7E2EB;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 48px;

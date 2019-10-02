@@ -1,21 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-
+import DailyPlan from "components/molecules/DailyPlan"
 
 const DailyCalender: React.FC = () => {
     return (
         < Container >
+            <DailyPlan plan={[["2019-10-03"],[0,1,2]]} />
         </Container >
     );
 }
 
 
 const Container = styled.div`
-    display: grid;
-    min-height: 640px;
-    grid-template-columns: repeat(1, minmax(840px, 1fr));
-    grid-template-rows: 48px repeat(12, 40px) 40px;
-    grid-auto-rows: inherit;
-    overflow: auto;
+  display:block;
 `;
 export default DailyCalender;

@@ -21,5 +21,6 @@ const Container = styled.div`
     text-align: center;
     line-height: 48px;
     font-weight: 600;
+    border-bottom:1px solid #D7E2EB;
 `
 export default DayName;

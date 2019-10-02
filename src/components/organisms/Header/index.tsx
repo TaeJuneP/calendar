@@ -7,7 +7,9 @@ import LeftAndRightPointer from "components/molecules/LeftAndRightPointer"
 
 type Props = {
   month: number
+  linkStatus: string
   setMonth: (month: number) => void;
+  setLinkStatus: (status: string) => void;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
@@ -19,7 +21,7 @@ const Header: React.FC<Props> = (props: Props) => {
         <LeftAndRightPointer setMonth={props.setMonth} month={props.month} />
         <Text month={props.month} />
       </Bundle>
-      <Link />
+      <Link linkStatus={props.linkStatus} setLinkStatus={props.setLinkStatus} />
     </Container>
   );
 

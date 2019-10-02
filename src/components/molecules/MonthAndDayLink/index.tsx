@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import NaviLink from "components/atoms/NaviLink";
-const MonthAndDayLink: React.FC = () => {
+
+type Props = {
+    linkStatus: string
+    setLinkStatus: (status: string) => void;
+  }
+
+const MonthAndDayLink: React.FC<Props> = (props:Props) => {
 
     const month = `월`;
     const day = `일`;
-    const [linkStatus, setLinkStatus] = useState(month);
-
-    const setStatus = (status: string) => {
-        setLinkStatus(status)
-    }
 
     return (
         <Container>
-            <NaviLink content={month} linkStatus={linkStatus} setStatus={setStatus} />
-            <NaviLink content={day} linkStatus={linkStatus} setStatus={setStatus} />
+            <NaviLink content={month} linkStatus={props.linkStatus} setLinkStatus={props.setLinkStatus} />
+            <NaviLink content={day} linkStatus={props.linkStatus} setLinkStatus={props.setLinkStatus} />
         </Container>
     );
 }

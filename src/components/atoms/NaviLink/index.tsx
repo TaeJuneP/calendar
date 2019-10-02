@@ -4,14 +4,14 @@ import styled from "styled-components";
 type Props = {
   content: string;
   linkStatus: string;
-  setStatus: (status: string) => void;
+  setLinkStatus: (status: string) => void;
 };
 
 const naviLink: React.FC<Props> = (props: Props) => {
   
   return (
     <>
-      <Container linkStatus={props.linkStatus} content={props.content} onClick={() => props.setStatus(props.content)}>{props.content}</Container>
+      <Container linkStatus={props.linkStatus} content={props.content} onClick={() => props.setLinkStatus(props.content)}>{props.content}</Container>
     </>
   );
 }
