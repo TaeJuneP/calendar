@@ -1,18 +1,40 @@
 import React from "react";
-// import styled from "styled-components"
+import DateFnsUtils from '@date-io/date-fns';
+import Grid from '@material-ui/core/Grid';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
+import "datepicker.css"
 
-import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
-require( 'eonasdan-bootstrap-datetimepicker' );
-
-const DatePicker: React.FC = () => {
-    return (
-        <>
-           
-        </ >
-    )
-
+type Props = {
+    date: Date | null;
+    setDate: (date: Date | null) => void;
 }
-// const Container = styled.div`
+
+const DatePicker: React.FC<Props> = (props: Props) => {
+    
+    const handleDateChange = (date: Date | null) => {
+        props.setDate(date);
+    };
+
+    return (
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Grid container justify="space-around">
+                <KeyboardDatePicker
+                    disableToolbar
+                    variant="inline"
+                    format="MM/dd/yyyy"
+                    margin="normal"
+                    value={props.date}
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{
+                        'aria-label': 'change date',
+                    }}
+                />  </Grid>
+        </MuiPickersUtilsProvider>
+    );
+}
 
 
 export default DatePicker;

@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-// import { createSchedule } from "apis";
 
 type Props = {
   setModalStatus: (status: boolean) => void;
+  createScheduleHandler: () => void
 };
 
-const ConfirmButton: React.FC<Props> = (props:Props) => {
+const ConfirmButton: React.FC<Props> = (props: Props) => {
   return (
     <>
-      <Button onClick={() => props.setModalStatus(false)}>일정 만들기</Button>
+      <Button onClick={() => (props.setModalStatus(false), props.createScheduleHandler())}>일정 만들기</Button>
     </>
   );
 };

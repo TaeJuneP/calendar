@@ -5,13 +5,14 @@ import Confirm from "components/atoms/ConfirmButton";
 
 type Props = {
   setModalStatus: (status: boolean) => void;
+  createScheduleHandler: () => void
 };
 
 const ModalFooter: React.FC<Props> = (props: Props) => {
   return (
     <Container>
-      <Cancel setModalStatus={props.setModalStatus}/>
-      <Confirm setModalStatus={props.setModalStatus}/>
+      <Cancel setModalStatus={props.setModalStatus} />
+      <Confirm setModalStatus={props.setModalStatus} createScheduleHandler={props.createScheduleHandler} />
     </Container>
   );
 };

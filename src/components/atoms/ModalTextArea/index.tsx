@@ -1,11 +1,26 @@
 import React from "react";
 import styled from "styled-components"
 
-const ModalTextArea: React.FC = () => {
+type Props = {
+    content: string
+    setContent: (content: string) => void;
+}
+
+
+const ModalTextArea: React.FC<Props> = (props: Props) => {
+
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const value = event.target.value;
+        if (value) {
+            props.setContent(value);
+        }
+    };
 
     return (
         <>
-            <TextArea />
+            <TextArea
+                onChange={handleChange}
+                value={props.content} />
         </>
     )
 }

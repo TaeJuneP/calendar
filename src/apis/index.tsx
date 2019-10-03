@@ -1,16 +1,17 @@
 import axios from "axios";
 
 const host = "http://localhost:5000";
-export const createSchedule = () => {
+const createScheduleURL = host + "/schedule";
+export const createSchedule = (title: string, content: string, start: string, end: string) => {
   let data = {
-    title: "일정",
-    content: "아아아아ㅏ아ㅏ아아아",
-    startDate: "2019-10-03",
-    endDate: "2019-10-04",
+    title: title,
+    content: content,
+    startDate: start,
+    endDate: end,
     planType: 1
   };
   axios
-    .post(host + "/schedule", data, {})
+    .post(createScheduleURL, data, {})
     .then(res => {
       console.log(res);
     })
@@ -18,6 +19,7 @@ export const createSchedule = () => {
       console.log("failed", error);
     });
 };
-export const getTable = () => {
+
+export const getSchedule = () => {
   axios.get(host + "/schedule", {});
 };

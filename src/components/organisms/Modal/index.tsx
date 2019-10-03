@@ -1,19 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "components/molecules/ModalHeader";
 import Body from "components/molecules/ModalBody";
 import Footer from "components/molecules/ModalFooter";
+import moment from "moment"
+import { createSchedule } from "apis";
 
 type Props = {
   setModalStatus: (status: boolean) => void;
 };
-
 const Modal: React.FC<Props> = (props: Props) => {
+
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState()
+  const [startDate, setStartDate] = useState()
+  const [startTime, setStartTime] = useState()
+  const [endDate, setEndDate] = useState()
+  const [endTime, setEndTime] = useState()
+
+
+  const createScheduleHandler = () => {
+    let start = moment(startDate).format('YYYY-DD-MM') + " " + moment(startTime).format('hh:mm:A')
+    let end = moment(endDate).format('YYYY-DD-MM') + " " + moment(endTime).format('hh:mm:A')
+    createSchedule(title, content, start, end)
+  }
+
   return (
     <Container>
-      <Header setModalStatus={props.setModalStatus}/>
-      <Body />
-      <Footer setModalStatus={props.setModalStatus} />
+      <Header setModalStatus={props.setModalStatus} />
+      <Body
+        title={title} setTitle={setTitle}
+        content={content} setContent={setContent}
+        startDate={startDate} setStartDate={setStartDate}
+        startTime={startTime} setStartTime={setStartTime}
+        endDate={endDate} setEndDate={setEndDate}
+        endTime={endTime} setEndTime={setEndTime} />
+      <Footer setModalStatus={props.setModalStatus} createScheduleHandler={createScheduleHandler} />
     </Container>
   );
 };

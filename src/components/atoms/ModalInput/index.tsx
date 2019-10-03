@@ -1,11 +1,24 @@
 import React from "react";
 import styled from "styled-components"
 
-const ModalInput: React.FC = () => {
+type Props = {
+    title: string
+    setTitle: (title: string) => void;
+}
 
+const ModalInput: React.FC<Props> = (props: Props) => {
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        if (value) {
+            props.setTitle(value);
+        }
+    };
     return (
         <>
-            <Input />
+            <Input
+                onChange={handleChange}
+                value={props.title} />
         </>
     )
 }
