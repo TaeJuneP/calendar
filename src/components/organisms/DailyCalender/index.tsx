@@ -8,12 +8,16 @@ type Props = {
 };
 
 const DailyCalender: React.FC<Props> = (props: Props) => {
-  let schedule = props.schedule;
-  console.log(props.schedule)
-  schedule.sort((a: any, b: any) => new Date(a['startDate']).getTime() - new Date(b['startDate']).getTime());
-  console.log(schedule)
   let plans: any = []
   let result: any = []
+  let schedule = props.schedule;
+  if (props.schedule !== undefined) {
+
+    console.log(props.schedule)
+    schedule.sort((a: any, b: any) => new Date(a['startDate']).getTime() - new Date(b['startDate']).getTime());
+    console.log(schedule)
+
+  }
   const CheckPlan = () => {
     for (let i = 0; i < schedule.length;) {
       if (plans.length === 0) {
