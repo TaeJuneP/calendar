@@ -3,13 +3,16 @@ import styled from "styled-components";
 import Icon from "components/atoms/NoteIcon"
 import Content from "components/atoms/PopoverContent"
 
-const PopoverContent: React.FC = () => {
+type Props = {
+    plan: any
+}
+const PopoverContent: React.FC<Props> = (props: Props) => {
 
     return (
         <Container>
             <Icon />
             <Bundle>
-                <Content />
+                <Content plan={props.plan} />
             </Bundle>
         </Container>
     );

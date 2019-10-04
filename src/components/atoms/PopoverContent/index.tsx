@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components"
 
+type Props = {
+    plan: any
+}
 
-const PopoverContent: React.FC = () => {
+const PopoverContent: React.FC<Props> = (props:Props) => {
 
     return (
         <>
-            <Container>스케쥴 메모, 설명이 나타납니다.</Container>
+            <Container>{props.plan["content"]}</Container>
         </>
     )
 }

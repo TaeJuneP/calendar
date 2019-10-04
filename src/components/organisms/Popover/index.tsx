@@ -2,26 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import PopoverTitleAndPeriod from "components/molecules/PopoverTitleAndPeriod"
 import PopoverContent from "components/molecules/PopoverContent"
-const Popover: React.FC = () => {
 
+type Props = {
+    n: any
+    plan: any
+    setPopoverStatus: (status: boolean) => void
+}
+
+const Popover: React.FC<Props> = (props: Props) => {
+    const PopoverClick = (event: any) => {
+        props.setPopoverStatus(false);
+        event.stopPropagation();
+    }
     return (
-        <Container>
+        <Container n={props.n} onClick={PopoverClick}>
             <Arrow />
-            <PopoverTitleAndPeriod />
-            <PopoverContent />
+            <PopoverTitleAndPeriod plan={props.plan}/>
+            <PopoverContent plan={props.plan}/>
         </Container>
     );
 }
 
-const Container = styled.div`
+const Container: React.ComponentType<any> = styled.div`
     position: absolute;
-    transform: translate3d(5px, 135px, 0px);
-    top: 0px;
-    left: 0px;
+    margin-top: -15px;
     padding: 16px;
-    will-change: transform;
     min-width: 320px;
     z-index: 1060;
+    margin-left: ${(props: any) => (props.n) * 55 + "px"};
     display: block;
     max-width: 276px;
     background-color: #fff;

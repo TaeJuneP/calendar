@@ -24,7 +24,7 @@ const DatePicker: React.FC<Props> = (props: Props) => {
                 <KeyboardDatePicker
                     disableToolbar
                     variant="inline"
-                    format="MM/dd/yyyy"
+                    format="yyyy-MM-dd"
                     margin="normal"
                     value={props.date}
                     onChange={handleDateChange}

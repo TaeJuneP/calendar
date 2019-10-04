@@ -20,8 +20,8 @@ const Modal: React.FC<Props> = (props: Props) => {
 
 
   const createScheduleHandler = () => {
-    let start = moment(startDate).format('YYYY-DD-MM') + " " + moment(startTime).format('hh:mm:A')
-    let end = moment(endDate).format('YYYY-DD-MM') + " " + moment(endTime).format('hh:mm:A')
+    let start = moment(startDate).format('YYYY-MM-D') + " " + moment(startTime).format('hh:mm:A')
+    let end = moment(endDate).format('YYYY-MM-D') + " " + moment(endTime).format('hh:mm:A')
     createSchedule(title, content, start, end)
   }
 

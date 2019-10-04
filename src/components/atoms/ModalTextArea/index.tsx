@@ -10,10 +10,7 @@ type Props = {
 const ModalTextArea: React.FC<Props> = (props: Props) => {
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const value = event.target.value;
-        if (value) {
-            props.setContent(value);
-        }
+        props.setContent(event.target.value);
     };
 
     return (

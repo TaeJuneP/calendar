@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components"
 
+type Props = {
+    plan: any
+}
 
-const PopoverPeriod: React.FC = () => {
+const PopoverPeriod: React.FC<Props> = (props: Props) => {
 
     return (
         <>
-            <Container>2019년 9월 15일 – 17일</Container>
+            <Container>{props.plan['startDate']} - {props.plan['endDate']}</Container>
         </>
     )
 }

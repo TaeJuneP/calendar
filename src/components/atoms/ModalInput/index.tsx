@@ -9,10 +9,7 @@ type Props = {
 const ModalInput: React.FC<Props> = (props: Props) => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        if (value) {
-            props.setTitle(value);
-        }
+        props.setTitle(event.target.value);
     };
     return (
         <>

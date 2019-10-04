@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const host = "http://localhost:5000";
-const createScheduleURL = host + "/schedule";
+const createScheduleURL = host + "/schedule/createSchedule";
+const getScheduleURL = host + "/schedule/getSchedule/"
 export const createSchedule = (title: string, content: string, start: string, end: string) => {
   let data = {
     title: title,
@@ -20,6 +21,14 @@ export const createSchedule = (title: string, content: string, start: string, en
     });
 };
 
-export const getSchedule = () => {
-  axios.get(host + "/schedule", {});
+export const getSchedule = async (data: string) => {
+  let schedule;
+  await axios.get(getScheduleURL + data).then(
+    res => { schedule = res.data }
+  )
+    .catch(error => {
+      console.log("failed", error);
+    });
+  console.log(schedule)
+  return schedule
 };

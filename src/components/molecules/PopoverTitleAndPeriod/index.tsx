@@ -4,14 +4,18 @@ import Title from "components/atoms/PopoverTitle"
 import Period from "components/atoms/PopoverPeriod"
 import Marking from "components/atoms/PopoverMarking"
 
-const PopoverTitleAndPeriod: React.FC = () => {
+type Props = {
+    plan: any
+}
+
+const PopoverTitleAndPeriod: React.FC<Props> = (props: Props) => {
 
     return (
         <Container>
             <Marking />
             <Bundle>
-                <Title />
-                <Period />
+                <Title title={props.plan['title']} />
+                <Period plan={props.plan} />
             </Bundle>
         </Container>
     );

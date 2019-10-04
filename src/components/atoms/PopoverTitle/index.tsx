@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components"
 
+type Props = {
+    title: any
+}
 
-const PopoverTitle: React.FC = () => {
+const PopoverTitle: React.FC<Props> = (props: Props) => {
 
     return (
         <>
-            <Container>일정 1</Container>
+            <Container>{props.title}</Container>
         </>
     )
 }
